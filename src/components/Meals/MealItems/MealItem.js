@@ -2,7 +2,8 @@ import Card from '../../UI/Card';
 
 import classes from './MealItem.module.css';
 
-const MealItem = props => {
+const MealItem = props => { 
+
   return <li>
     <Card className={classes['meal-item']}>
       <div className={classes['item-left']}>
@@ -11,7 +12,7 @@ const MealItem = props => {
       </div>
       <div className={classes['item-right']}>
         <span className={classes.price}>${props.price.toFixed(2)}</span>
-        <button>Add to Cart</button>
+        <button onClick={props.addItem}>Add to Cart</button>
       </div>
     </Card>
   </li>;
