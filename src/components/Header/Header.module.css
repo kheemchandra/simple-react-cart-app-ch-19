@@ -1,0 +1,38 @@
+.header{
+  background-color: #111;
+  padding: 2.2rem;
+}
+
+.nav{ 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  max-width: 121rem; 
+  width: 80vw;
+  margin: auto;
+}
+
+.nav h1{
+  font-size: 3.2rem;
+  color: white;
+}
+
+.button--cart{
+  font-size: 1.6rem;
+  background-color: #111;
+  border-color: #00ffaa;
+  color: #00ffaa;
+}
+
+.button--cart:hover{
+  
+}
+
+.count{
+  background-color: #00ffaa;
+  color: black;
+  margin-left: 2rem;
+  padding: .5rem 2rem;
+  border-radius: 2rem;
+}

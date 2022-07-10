@@ -1,0 +1,13 @@
+.cart{
+  width: 88vw;
+  max-width: 50rem; 
+  margin-top: 2rem;
+  padding: 2.5rem 1.5rem;
+  background-color: #292929;
+  color: white;
+}
+
+.cart h3{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
