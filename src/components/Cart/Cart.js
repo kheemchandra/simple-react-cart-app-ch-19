@@ -1,13 +1,12 @@
-import { useContext } from "react";
+import { useSelector } from 'react-redux';
 
 import Card from "../UI/Card";
-import CartList from "./CartItems/CartList";
-import CartContext from "../../store/use-context";
+import CartList from "./CartItems/CartList"; 
 
 import classes from "./Cart.module.css";
 
 const Cart = (props) => {
-  const cartCtx = useContext(CartContext);
+  const showCart = useSelector(state => state.ui.showCart);
 
   let content = (
     <Card className={classes.cart}>
@@ -16,7 +15,7 @@ const Cart = (props) => {
     </Card>
   );
 
-  if (!cartCtx.showCart) {
+  if (!showCart) {
     content = null;
   }
 

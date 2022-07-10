@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useDispatch } from 'react-redux';
 
-import CartContext from "../../../store/use-context";
 import MealItem from "./MealItem";
+import { cartActions } from '../../../store/cart-slice';
 
 const DUMMY_ITEMS = [
   {
@@ -25,7 +25,12 @@ const DUMMY_ITEMS = [
 ];
 
 const MealList = (props) => {
-  const cartCtx = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const addItemHandler = (item) => {
+    dispatch(cartActions.addItem(item));
+  };
+
 
   let content = DUMMY_ITEMS.map((item) => {
     return (
@@ -34,7 +39,7 @@ const MealList = (props) => {
         name={item.name}
         description={item.description}
         price={item.price}
-        addItem={cartCtx.addItem.bind(null, item)}
+        addItem={addItemHandler.bind(null, item)}
       />
     );
   });

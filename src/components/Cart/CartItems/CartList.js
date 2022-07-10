@@ -1,36 +1,25 @@
-import { useContext } from "react";
+import { useDispatch, useSelector} from 'react-redux';
 
-import CartContext from "../../../store/use-context";
 import CartItem from "./CartItem";
+import { cartActions } from '../../../store/cart-slice';
 
 import classes from "./CartList.module.css";
 
-const DUMMY_ITEMS = [
-  {
-    id: "i1",
-    name: "Test Item-1",
-    description: "This is a first product - amazing!",
-    price: 6,
-  },
-  {
-    id: "i2",
-    name: "Test Item-2",
-    description: "This is a second product - amazing!",
-    price: 12,
-  },
-  {
-    id: "i3",
-    name: "Test Item-3",
-    description: "This is a third product - amazing!",
-    price: 50,
-  },
-];
 
-const CartList = (props) => {
-  const cartCtx = useContext(CartContext);
-  const items = cartCtx.items;
+const CartList = (props) => { 
+  const dispatch = useDispatch();
+  const quantity = useSelector(state => state.cart.quantity);
+  const items = useSelector(state => state.cart.items);
 
-  if (!cartCtx.quantity) {
+  const removeItemHandler = (id) => {
+    dispatch(cartActions.removeItem(id));
+  };
+
+  const addItemHandler = (item) => {
+    dispatch(cartActions.addItem(item));
+  };
+
+  if (!quantity) {
     return (
       <p className={classes["empty-cart"]}>
         Your cart is empty. Please add items to your cart.
@@ -45,8 +34,8 @@ const CartList = (props) => {
         name={item.name}
         price={item.price}
         quantity={item.quantity}
-        addItem={cartCtx.addItem.bind(null, item)}
-        removeItem={cartCtx.removeItem.bind(null, item.id)}
+        removeItem={removeItemHandler.bind(null, item.id)}
+        addItem={addItemHandler.bind(null, item)}
       />
     );
   });

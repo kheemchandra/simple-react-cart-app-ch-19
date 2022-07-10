@@ -1,18 +1,23 @@
-import { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import CartContext from '../../store/use-context';
+import { uiActions } from '../../store/ui-slice';
 
 import classes from './Header.module.css';
 
 const Header = props => {
-  const cartCtx = useContext(CartContext);
+  const dispatch = useDispatch();
+  const quantity = useSelector(state => state.cart.quantity);
+  
+  const toggleCartHandler = () => {
+    dispatch(uiActions.toggleCart());
+  }
 
   return <header className={classes.header}>
     <nav className={classes.nav}>
     <h1>ReduxCart</h1>
-    <button onClick={cartCtx.toggleCart} className={classes['button--cart']}>
+    <button onClick={toggleCartHandler} className={classes['button--cart']}>
       <span>My Cart</span>
-      <span className={classes.count}>{cartCtx.quantity}</span>
+      <span className={classes.count}>{quantity}</span>
     </button>
   </nav>
   </header>
