@@ -20,9 +20,9 @@
 
 .button--cart{
   font-size: 1.6rem;
-  background-color: #111;
-  border-color: #00ffaa;
-  color: #00ffaa;
+  background-color: #111; 
+  border-color: #2dd3cb; 
+  color: #2dd3cb;
 }
 
 .button--cart:hover{
@@ -30,9 +30,9 @@
 }
 
 .count{
-  background-color: #00ffaa;
+  background-color: #2dd3cb;
   color: black;
   margin-left: 2rem;
-  padding: .5rem 2rem;
+  padding: .3rem 2rem;
   border-radius: 2rem;
 }

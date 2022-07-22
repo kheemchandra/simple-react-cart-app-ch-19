@@ -1,0 +1,22 @@
+.notification{
+  /* max-gap: 121rem; */
+  padding-inline: 10vw;
+  padding-block: 1.6rem;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0084ff;
+  color: white;
+}
+
+.success{
+  background-color: aqua;
+  background-color: #00ffaa;
+  background-color:#2dd3cb;
+}
+
+.failure{
+  background-color: maroon;
+}
